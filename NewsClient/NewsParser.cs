@@ -11,16 +11,15 @@ namespace NewsClient
     {
         class Data
         {
-            public NewsItem[] articles { get; set; }
+            public IEnumerable<NewsItem> articles { get; set; }
         }
 
-        public static List<NewsItem> ParseToList(string json)
+        public static IEnumerable<NewsItem> ParseToList(string json)
         {
             Data data = JsonConvert.DeserializeObject<Data>(json);
-            List<NewsItem> temp = new List<NewsItem>(data.articles);
-            return temp;
+            return data.articles;
         }
-        public static string ParseToString(List<NewsItem> news)
+        public static string ParseToString(IEnumerable<NewsItem> news)
         {
             return JsonConvert.SerializeObject(news);
         }

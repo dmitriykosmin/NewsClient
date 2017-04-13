@@ -51,7 +51,7 @@ namespace NewsClient
                 using (HttpResponseMessage response = await client.GetAsync(query))
                 {
                     JsonString = await response.Content.ReadAsStringAsync();
-                    News = NewsParser.ParseToList(JsonString);
+                    News = NewsParser.ParseToList(JsonString).ToList();
                 }
                 if (View == null)
                 {
