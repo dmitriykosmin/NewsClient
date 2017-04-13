@@ -39,7 +39,7 @@ namespace NewsClient
 
         }
 
-        public static void SetView(List<NewsItem> news)
+        public static void SetView(IEnumerable<NewsItem> news)
         {
             Items.Clear();
             foreach (var item in news)

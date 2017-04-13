@@ -25,7 +25,7 @@ namespace NewsClient
     public partial class MainWindow : Window
     {
         private string JsonString { get; set; }
-        private List<NewsItem> News { get; set; }
+        private IEnumerable<NewsItem> News { get; set; }
         private DateTime CurrentDate { get; set; }
         private NewsView View { get; set; }
         public MainWindow()
@@ -51,7 +51,7 @@ namespace NewsClient
                 using (HttpResponseMessage response = await client.GetAsync(query))
                 {
                     JsonString = await response.Content.ReadAsStringAsync();
-                    News = NewsParser.ParseToList(JsonString).ToList();
+                    News = NewsParser.ParseToList(JsonString);
                 }
                 if (View == null)
                 {
@@ -85,11 +85,11 @@ namespace NewsClient
         {
             NewsPreview.Items.Clear();
             NewsPreview.Items.Add(new TextBlock(new Run("Быстрое переключение между новостями")));
-            for (int i = 0; i < News.Count; i++)
+            for (int i = 0; i < News.Count(); i++)
             {
                 Button temp = new Button()
                 {
-                    Content = News[i].title,
+                    Content = News.ElementAt(i).title,
                     ClickMode = ClickMode.Release,
                     Name = "button" + i.ToString(),
                     HorizontalAlignment = HorizontalAlignment.Stretch,
