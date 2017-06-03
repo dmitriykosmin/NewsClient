@@ -5,12 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:NewsClient"
         mc:Ignorable="d"
-        Title="Новости" Height="600" Width="800" FontFamily="Times New Roman" FontStyle="Italic" FontSize="18.667" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen" WindowState="Maximized">
+        Title="News" Height="600" Width="800" FontFamily="Times New Roman" FontStyle="Italic" FontSize="18.667" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen" WindowState="Maximized">
     <Grid>
         <Menu x:Name="menu" HorizontalAlignment="Left" Height="auto" VerticalAlignment="Top" Width="auto" FontFamily="Times New Roman" FontSize="21.333" FontStyle="Italic">
-            <MenuItem Header="Меню">
-                <MenuItem Header="Обновить" x:Name="Update" Click="Update_Click"></MenuItem>
-                <MenuItem Header="Выход" x:Name="Exit" Click="Exit_Click"></MenuItem>
+            <MenuItem Header="Menu">
+                <MenuItem Header="Update" x:Name="Update" Click="Update_Click"></MenuItem>
+                <MenuItem Header="Exit" x:Name="Exit" Click="Exit_Click"></MenuItem>
             </MenuItem>
             <DatePicker x:Name="Date" CalendarClosed="Date_CalendarClosed" SelectedDateFormat="Long">
                 <DatePicker.CalendarStyle>
@@ -30,10 +30,10 @@
                     </Style>
                 </DatePicker.CalendarStyle>
             </DatePicker>
-            <ComboBox x:Name="NewsPreview" SelectedIndex="0"/>
+            <ComboBox x:Name="NewsPreview" SelectedIndex="0" MaxWidth="650"/>
         </Menu>
         <ListView x:Name="NewsList" Margin="0,35,0,0" ScrollViewer.CanContentScroll="False" FontSize="24">
         </ListView>
-        <TextBlock x:Name="NoNews" Text="Новостей по этой дате нет" HorizontalAlignment="Center" VerticalAlignment="Center" TextOptions.TextHintingMode="Animated" FontWeight="ExtraBold" FontFamily="Broadway" FontSize="21.333" Visibility="Hidden"/>
+        <TextBlock x:Name="NoNews" Text="No news for this date" HorizontalAlignment="Center" VerticalAlignment="Center" TextOptions.TextHintingMode="Animated" FontWeight="ExtraBold" FontFamily="Broadway" FontSize="21.333" Visibility="Hidden"/>
     </Grid>
 </Window>

@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
+  <Class Name="NewsClient.MainWindow" BaseTypeListCollapsed="true">
+    <Position X="0.5" Y="0.5" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAEAAQAAIQAAAAAAAAAAAQgAQAAhAAABAAAAgAAQAAA=</HashCode>
+      <FileName>MainWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="NewsClient.NewsItem">
+    <Position X="0.5" Y="4.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AACAAAAAQAAAAAAAIAAAAIAAAAEIAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>NewsItem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NewsClient.NewsParser">
+    <Position X="3.5" Y="0.5" Width="3.25" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Class Name="NewsClient.NewsParser.Data">
+        <TypeIdentifier>
+          <NewMemberFileName>NewsParser.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAA=</HashCode>
+      <FileName>NewsParser.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NewsClient.NewsView" BaseTypeListCollapsed="true">
+    <Position X="3.5" Y="4" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAAAAACBAAAAAAAAAAAAAAAAAwAAAAAAAAAAA=</HashCode>
+      <FileName>NewsView.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Font Name="Segoe UI" Size="10" />
+</ClassDiagram>

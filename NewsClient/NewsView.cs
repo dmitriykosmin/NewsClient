@@ -46,7 +46,7 @@ namespace NewsClient
             {
                 WrapPanel temp = new WrapPanel();
                 temp.Orientation = Orientation.Horizontal;
-                if (item.urlToImage != "")
+                if (!string.IsNullOrEmpty(item.urlToImage))
                 {
                     Image image = DownloadRemoteImageFile(item.urlToImage);
                     if (image != null)
@@ -68,11 +68,18 @@ namespace NewsClient
                 Hyperlink link = new Hyperlink(run);
                 link.IsEnabled = false;
                 link.Foreground = Brushes.DarkBlue;
-                if (item.url != "")
+                try
                 {
-                    link.IsEnabled = true;
-                    link.RequestNavigate += (sender, args) => Process.Start(args.Uri.ToString());
-                    link.NavigateUri = new Uri(item.url);
+                    if (!string.IsNullOrEmpty(item.url))
+                    {
+                        link.IsEnabled = true;
+                        link.RequestNavigate += (sender, args) => Process.Start(args.Uri.ToString());
+                        link.NavigateUri = new Uri(item.url);
+                    }
+                }
+                catch (UriFormatException ex)
+                {
+                    link.IsEnabled = false;
                 }
                 TextBlock text = new TextBlock();
                 text.FontSize = 24;

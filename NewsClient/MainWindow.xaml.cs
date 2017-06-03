@@ -43,6 +43,7 @@ namespace NewsClient
 
         private async Task GetNews(DateTime date)
         {
+            Cursor = Cursors.Wait;
             string query = "http://127.0.0.1:1848/News/Get";
             if (date != DateTime.Now.Date) query += "/" + date.ToString("MMddyyyy");
             try
@@ -62,7 +63,12 @@ namespace NewsClient
             }
             catch
             {
-                MessageBox.Show("Соединение с сервером не установлено. Пожалуйста, проверьте ваше интернет соединение.");
+                MessageBox.Show("Connection to the server is not established. Please check your internet connection.",
+                    "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            finally
+            {
+                Cursor = Cursors.Arrow;
             }
         }
 
@@ -84,7 +90,7 @@ namespace NewsClient
         private void SetNewsPriview()
         {
             NewsPreview.Items.Clear();
-            NewsPreview.Items.Add(new TextBlock(new Run("Быстрое переключение между новостями")));
+            NewsPreview.Items.Add(new TextBlock(new Run("Fast switching between news")));
             for (int i = 0; i < News.Count(); i++)
             {
                 Button temp = new Button()
